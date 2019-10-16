@@ -70,7 +70,7 @@ If these values are not equal then return the current index value and value pres
   return res;
 }
 ```
-
+The time complexity of this solution is O(n) and the space complexity is O(1)
 Boundary test cases
 ```
 Input
