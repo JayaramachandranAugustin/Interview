@@ -3,4 +3,4 @@
 
 ## Algorithm
 
-### [Array](./Array/Array.md)
+### [Array](./Algorithm/Array/Array.md)
