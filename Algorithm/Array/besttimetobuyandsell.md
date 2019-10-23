@@ -8,12 +8,16 @@ In this lesson we will see about best time to buy and sell. Given an array of in
 
 We were permitted to buy and sell only once. We need to return the maximum profit that be can be achieved
 
+For example given the input array
+{10,2,3,6,8,9,1} , Here the maximum profit can be achieved by buying it for the cost 2 and selling it for the profit 9, to the maximum profit that can be achieved in this share for the n days is 7
+
 The brute force solution for this problem is
 
 ```java
 public int maxProfit(int[] nums){
   if(nums==null ||nums.length==0) return 0;
   int max=0,current=0;
+  //create two for loops
   for(int i=0;i<nums.length;i++){
     for(int j=i+1;j<nums.length;j++){
         max=Math.max(nums[j]-nums[i],max);

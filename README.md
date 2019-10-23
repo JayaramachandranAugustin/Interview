@@ -1,7 +1,8 @@
-# Preparation guide to prepare for Interview
+# Preparation guide for coding Interview
 
 
 ## Algorithm
 
-### [Array](./Algorithm/Array/Array.md)
-### [Two pointers](./Algorithm/Twopointers/twopointers.md)
+### [1. Array](./Algorithm/Array/Array.md)
+### [2. Two pointers](./Algorithm/Two_pointers/two_pointers.md)
+### [3. Recursion](./Algorithm/Recursion/recursion.md)
