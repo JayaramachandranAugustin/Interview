@@ -53,6 +53,9 @@ Pseudocode for dfs
     recursively call dfs with current edge node
 ```
 
+
+We will see the depth first search pseudocode implementation in java
+
 ```java
 class Graph{
   //First we will create an adjancency list. As I mentioned adjacency list is the list of list.
