@@ -8,7 +8,7 @@ Breadth first search is similar to breadth first search of tree, The key differe
 
 Breadth first search uses the queue data structure. Queue is the first in first out data structure. That is the element to enter first is the element come out first. Here queue is used to track which node to visit next.
 
-The algorithm is very simple. The start node added to queue first. Then their nodes are added to queue if they are not already visited. We keep on continue this till the queue becomes empty.
+The algorithm is very simple. The start node added to queue first. Then their edge nodes are added to queue if they are not already visited. We keep on continue this till the queue becomes empty.
 
 The time complexity of the breadth first search is O(V+E) where v is the vertex or node and E is the edge which connects the nodes.
 
