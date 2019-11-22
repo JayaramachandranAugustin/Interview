@@ -65,3 +65,180 @@ if the edgeNode is not already present in the visited hash set then add it to th
 If the reachedDestination is true that means we reached endnode so stop building the graph
 
 Now traverse the graph using depth first search and print all the path which connects from start to end node. Here all the path which connects from start to end will have same shortest distance.
+
+```java
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class WordLadderII {
+	    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+	        HashSet<String> dict=new HashSet<String>(wordList);
+	        List<List<String>> result=new ArrayList<>();
+	        HashMap<String,ArrayList<String>> graph=new HashMap<>();
+	        buildGraph(beginWord,endWord,dict,graph);
+	        findShortPathLists(beginWord,endWord,result,new ArrayList<String>(),graph);
+	        return result;
+	    }
+
+
+	    public void  buildGraph(String beginWord,String endWord,HashSet<String> dict,HashMap<String,ArrayList<String>> graph){
+	        HashSet<String> toVisit=new HashSet<String>();
+	        HashSet<String> visited=new HashSet<String>();
+	        Queue<String> queue=new LinkedList<String>();
+	        boolean reachedDest=false;
+	        queue.offer(beginWord);
+	        toVisit.add(beginWord);
+
+	        while(!queue.isEmpty()){
+	            int currLvlNodeCnt=toVisit.size();
+	            visited.addAll(toVisit);
+	            toVisit.clear();
+
+	            for(int i=0;i<currLvlNodeCnt;i++){
+	                String currWord=queue.poll();
+	                ArrayList<String> edgeNodes=getEdgeNodes(currWord,dict);
+	                for(String edgeNode:edgeNodes){
+	                    if(edgeNode.equals(endWord)) reachedDest=true;
+	                    if(!visited.contains(edgeNode)){
+	                        if(!graph.containsKey(currWord)){
+	                            graph.put(currWord,new ArrayList<String>());    
+	                        }
+	                        graph.get(currWord).add(edgeNode);
+	                    }
+	                    if(!visited.contains(edgeNode) && !toVisit.contains(edgeNode)){
+	                        toVisit.add(edgeNode);
+	                        queue.offer(edgeNode);
+	                    }
+	                }
+	            }
+	            if(reachedDest) break;
+	        }
+
+	    }
+
+	    public ArrayList<String> getEdgeNodes(String currWord,HashSet<String> dict){
+	        char[] charArr=currWord.toCharArray();
+	        ArrayList<String> edgeNodes=new ArrayList<String>();
+
+	        for(int i=0;i<charArr.length;i++){
+	            for(char c='a';c<='z';c++){
+	                if(charArr[i]==c) continue;                
+	                char temp = charArr[i];
+	                charArr[i]=c;
+	                String str=new String(charArr);
+	                if(dict.contains(str)) edgeNodes.add(str);
+	                charArr[i]=temp;
+	            }
+	        }
+	        return edgeNodes;
+	    }
+
+	    public void findShortPathLists(String currWord, String endWord,List<List<String>> result,ArrayList<String> path,HashMap<String,ArrayList<String>> graph){
+	        path.add(currWord);
+	        if(currWord.equals(endWord)) result.add(new ArrayList<String>(path));
+	        else if(graph.containsKey(currWord)){
+	            for(String word:graph.get(currWord)){
+	                findShortPathLists(word,endWord,result,path,graph);
+	            }
+	        }
+	        path.remove(path.size()-1);
+	    }
+	    public static void main(String[] args) {
+			WordLadderII wl=new WordLadderII();
+			List<String> dict=new ArrayList<String>();
+			dict.add("hot");
+			dict.add("dot");
+			dict.add("dog");
+			dict.add("lot");
+			dict.add("log");
+			dict.add("cog");
+			wl.findLadders("hit", "cog", dict);
+		}
+}
+
+
+```
+There is another medium problem word ladder problem 1. In which we need just to find the shortest distance. We can do small modification in the above code. we can increment the counter at each level and once we reached the endword. Increment the counter and assign it to result. This result is the shortest distance.
+
+```JAVA
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class WordLadderII {
+	    public int findLadders(String beginWord, String endWord, List<String> wordList) {
+	        HashSet<String> dict=new HashSet<String>(wordList);
+	        return buildGraph(beginWord,endWord,dict);
+	    }
+
+
+	    public int  buildGraph(String beginWord,String endWord,HashSet<String> dict){
+	        HashSet<String> toVisit=new HashSet<String>();
+	        HashSet<String> visited=new HashSet<String>();
+	        Queue<String> queue=new LinkedList<String>();
+	        int result=0,count=0;
+	        boolean reachedDest=false;
+	        queue.offer(beginWord);
+	        toVisit.add(beginWord);
+
+	        while(!queue.isEmpty()){
+	            int currLvlNodeCnt=toVisit.size();
+	            visited.addAll(toVisit);
+	            toVisit.clear();
+	            count++;
+	            for(int i=0;i<currLvlNodeCnt;i++){
+	                String currWord=queue.poll();
+	                ArrayList<String> edgeNodes=getEdgeNodes(currWord,dict);
+	                for(String edgeNode:edgeNodes){
+	                    if(edgeNode.equals(endWord)) reachedDest=true;
+	                    if(!visited.contains(edgeNode) && !toVisit.contains(edgeNode)){
+	                        toVisit.add(edgeNode);
+	                        queue.offer(edgeNode);
+	                    }
+	                }
+	            }
+	            if(reachedDest) {
+	            	result=count+1;
+	            	break;
+	            }
+	        }
+	        return result;
+
+	    }
+
+	    public ArrayList<String> getEdgeNodes(String currWord,HashSet<String> dict){
+	        char[] charArr=currWord.toCharArray();
+	        ArrayList<String> edgeNodes=new ArrayList<String>();
+
+	        for(int i=0;i<charArr.length;i++){
+	            for(char c='a';c<='z';c++){
+	                if(charArr[i]==c) continue;                
+	                char temp = charArr[i];
+	                charArr[i]=c;
+	                String str=new String(charArr);
+	                if(dict.contains(str)) edgeNodes.add(str);
+	                charArr[i]=temp;
+	            }
+	        }
+	        return edgeNodes;
+	    }
+
+	    public static void main(String[] args) {
+			WordLadderII wl=new WordLadderII();
+			List<String> dict=new ArrayList<String>();
+			dict.add("hot");
+			dict.add("dot");
+			dict.add("dog");
+			dict.add("lot");
+			dict.add("log");
+			dict.add("cog");
+			wl.findLadders("hit", "cog", dict);
+		}
+}
+```

@@ -16,7 +16,7 @@ The brute force solution for this problem is
 ```java
 public int maxProfit(int[] nums){
   if(nums==null ||nums.length==0) return 0;
-  int max=0,current=0;
+  int max=0;
   //create two for loops
   for(int i=0;i<nums.length;i++){
     for(int j=i+1;j<nums.length;j++){
@@ -53,7 +53,7 @@ Implementing the above pseudocode in java
 public int maxProfit(int[] nums){
   if(nums==null ||nums.length==0) return 0;
   int max=0,current=0,min=nums[0];
-  for(int i=0;i<nums.length;i++){
+  for(int i=1;i<nums.length;i++){
     if(nums[i]<min){
       min=nums[i];
     }else{
