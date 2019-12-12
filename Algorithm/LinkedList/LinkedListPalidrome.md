@@ -20,7 +20,7 @@ There is another approach to get the solution for this problem. The idea is to d
  When the fast reaches null or next of fast is null the slow pointer will be in center for odd count of list and the slow pointer will be pointing to first element of second half if the count is even.
 
 In this example the there are odd number of nodes in the linked lists so the slow pointers point the center which is node 3.
- Now we will reverse the list starting from the slow pointer. Here I am using the iterative approach to reverse the Linked list. Here I following the approach 2 in the iterative way from my video . The link of which I gave in the description. The time complexity of this reversing algorithm is O(n) and the space  complexity is O(1)
+ Now we will reverse the list starting from the slow pointer. Here I am using the itera0tive approach to reverse the Linked list. Here I following the approach 2 in the iterative way from my video . The link of which I gave in the description. The time complexity of this reversing algorithm is O(n) and the space  complexity is O(1)
 
 Once you reverse the second half the next reference of the second half starting will become null. So here the next reference of the 3 becomes null.
 

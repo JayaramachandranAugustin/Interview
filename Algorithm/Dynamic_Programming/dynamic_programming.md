@@ -73,7 +73,7 @@ we will see the java implementation of this memoization. Here we are using addit
 public class Fibonacci {
   //n the index value we need to find
   //array to store the subproblem results
-	public int fib(int n,int[] f){
+	public Integer fib(int n, Integer[] f){
       //base case for the recursive loop
       if(n<=1){
 		    return n;
@@ -81,9 +81,9 @@ public class Fibonacci {
       //This will be initially Integer.MIN_VALUE
       //Return the result of already computed subproblem
       //Here we check if we have already computed this subproblem result. if computed we will return the value
-		  if(f[n]!=Integer.MIN_VALUE) return f[n];
+		  if(f[n]!=null) return f[n];
 		  else{
-        //if not, then compute the subproblem results and store it in array
+        //if not, htnecompute the subproblem results and store it in array
 		    f[n]=fib(n-1,f)+fib(n-2,f);
 		  }
       //return subproblem result
