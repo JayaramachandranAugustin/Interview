@@ -10,3 +10,5 @@
 ### [5. Dynamic programming](./Algorithm/Dynamic_Programming/dynamic_programming.md)
 ### [6. String](./Algorithm/String/string.md)
 ### [7. Trie](./Algorithm/Trie/Trie.md)
+### [8. Linked List](./Algorithm/LinkedList/linkedlist.md)
+### [9. Heap](./Algorithm/Heap/heap.md)
