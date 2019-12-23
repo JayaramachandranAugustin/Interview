@@ -221,14 +221,14 @@ public class Heap{
 
     public int getLeftIndex(int index, int endIndex){
       int leftIndex=2*index+1;
-      if(leftIndex>=0 && leftIndex<endIndex){
+      if(leftIndex<endIndex){
           return leftIndex;
       }
       return -1;
     }
     public int getRightIndex(int index, int endIndex){
       int rightIndex=2*index+2;
-      if(rightIndex>=0 && rightIndex<endIndex){
+      if( rightIndex<endIndex){
         return rightIndex;
       }
       return -1;
