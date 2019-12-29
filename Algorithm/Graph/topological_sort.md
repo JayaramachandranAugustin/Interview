@@ -5,6 +5,10 @@ In this lesson we will see about Topological sort, We will see the topics such a
 
 What are the real applications of the Topological sort. Lets take you need to learn React framework without any previous knowledge on web development. So what are the pre-requisite to learn the React. Pre-requisites are we need to learn the HTML, CSS and Plain vanilla JavaScript.  What is the order in which we need to learn the pre-requisite. HTML first followed by CSS followed by Plain vanilla JavaScript. Then finally React. Here the Topological sort is used to sort this topics based on these dependency. The Topological sorted list is HTML, CSS, JavaScript and React. Some other examples or topological sort is Handling project dependency. Where one library package is dependent on another and it might be dependent on other. So, Handling package dependency for a project can be done using topological sort.
 
+A very simple analogy is. Now you came here to learn about topologicalSort. To understand topologicalSort you need to know depth first search. Before learning depth first search you need to know about graph data structure and array. So the topologicalSort gives the list in which you need to learn the pre-requisite before learning about topological sort. The link to learn the pre requisite are given in the description.
+
+The given graph must be acyclic. We will see why this is necessity. Let take for a course C, The pre-requisite is A and B. If for the course B the prerequiste is course A. For the course A the pre-requisite is course A. We can't complete both A and B. Eventually we can't complete the course C.
+
 
 So the definition of the topological sort is, a topological sort or topological ordering of a directed graph is a linear ordering of its vertices such that for every directed edge ab from vertex a to vertex b, a comes before b in the ordering.
 
