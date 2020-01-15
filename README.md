@@ -12,3 +12,4 @@
 ### [7. Trie](./Algorithm/Trie/Trie.md)
 ### [8. Linked List](./Algorithm/LinkedList/linkedlist.md)
 ### [9. Heap](./Algorithm/Heap/heap.md)
+### [10. Sorting](./Algorithm/Sorting/sorting.md)
