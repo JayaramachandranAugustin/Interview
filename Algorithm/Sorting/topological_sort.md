@@ -1,5 +1,6 @@
 # Topological sort
 
+Author - [Jayaramachandran Augustin](https://www.linkedin.com/in/jayaramachandran-augustin-bbb754109/).
 
 In this lesson we will see about Topological sort, We will see the topics such as What is Topological sort? the applications of the Topological sort and how to perform the Topological sort with code and animation.
 
